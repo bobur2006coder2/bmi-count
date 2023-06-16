@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI Calculator</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+input {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.result {
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>BMI Calculator</h1>
+<div class="form">
+  <input type="text" name="age" placeholder="Age">
+  <input type="radio" name="gender" value="male" checked> Male
+  <input type="radio" name="gender" value="female"> Female
+  <input type="text" name="height" placeholder="Height (in)">
+  <input type="text" name="weight" placeholder="Weight (lbs)">
+  <button type="submit">Calculate BMI</button>
+</div>
+<div class="result"></div>
+<script>
+function calculateBMI() {
+  var age = document.querySelector("input[name='age']").value;
+  var gender = document.querySelector("input[name='gender']:checked").value;
+  var height = document.querySelector("input[name='height']").value;
+  var weight = document.querySelector("input[name='weight']").value;
+
+  var bmi = weight / (height * height);
+
+  var result = document.querySelector(".result");
+  result.innerHTML = "Your BMI is " + bmi;
+}
+
+document.querySelector("button").addEventListener("click", calculateBMI);
+</script>
+</body>
+</html>
